@@ -1,0 +1,41 @@
+const Amorph = require('amorph')
+const amorphHexPlugin = require('amorph-hex')
+const amorphBignumberPlugin = require('amorph-bignumber')
+const amorphBufferPlugin = require('amorph-buffer')
+const Bignumber = require('bignumber.js')
+const log = require('./log')
+const clearTerminal = require('./clearTerminal')
+
+Amorph.loadPlugin(amorphHexPlugin)
+Amorph.loadPlugin(amorphBufferPlugin)
+Amorph.loadPlugin(amorphBignumberPlugin)
+Amorph.ready()
+
+// Goal : determine if these values are equal
+
+const value1 = new Amorph('0xff', 'hex.prefixed')
+const value2 = new Amorph('ff', 'hex')
+const value3 = new Amorph(255, 'number')
+const value4 = new Amorph(254, 'number')
+
+log.yellow('value1.equals(value1): 0xff.equals(0xff)')
+log.green(value1.equals(value1))
+log.yellow('value2.equals(value2): 0xff.equals(ff)')
+log.green(value1.equals(value2))
+log.yellow('value2.equals(value3): 0xff.equals(255)')
+log.green(value1.equals(value3))
+log.yellow('value1.equals(value4): 0xff.equals(244)')
+log.red(value1.equals(value4))
+
+console.log('=======================')
+const value5 = new Amorph(new Bignumber('ff', 16), 'bignumber')
+const value6 = new Amorph(new Bignumber(255), 'bignumber')
+log.yellow('value5.equals(value6): Bignumber(ff).equals(Bignumber(255))')
+log.green(value5.equals(value6))
+console.log('=======================')
+log.green(value1.equals(value1))
+log.yellow('Amorph.equivalenceTests:')
+Object.keys(Amorph.equivalenceTests).forEach((key) => {
+  log.yellow(key + ':')
+  log.magenta(Amorph.equivalenceTests[key])
+})

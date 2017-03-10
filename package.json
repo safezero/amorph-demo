@@ -1,0 +1,24 @@
+{
+  "name": "amorph-demo",
+  "version": "0.0.0",
+  "description": "",
+  "main": "0.intro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amorph": "^1.1.0",
+    "amorph-base58": "^1.0.1",
+    "amorph-bignumber": "^1.0.2",
+    "amorph-buffer": "^1.1.4",
+    "amorph-hex": "^1.0.2",
+    "bignumber.js": "^4.0.0",
+    "chai-amorph": "0.0.4",
+    "chai-as-promised": "^6.0.0",
+    "colors": "^1.1.2",
+    "ipfs-amorph-api": "0.0.3",
+    "mocha": "^3.2.0"
+  }
+}
