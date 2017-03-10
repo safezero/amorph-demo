@@ -20,13 +20,13 @@ chai.should()
 
 const multihash = new Amorph('QmTp2hEo8eXRp6wg7jXv1BLCMh5a4F3B7buAUZNZUu772j', 'base58')
 const helloWorld = new Amorph('hello world!', 'ascii')
-const badFile = new Amorph('NOT hello world!', 'ascii')
+const goodbyeWorld = new Amorph('goodbye world!', 'ascii')
 
 describe('get file', () => {
-  it('get QmTp2hEo8eXRp6wg7jXv1BLCMh5a4F3B7buAUZNZUu772j should equal hello world', () => {
+  it('get QmTp2hEo8eXRp6wg7jXv1BLCMh5a4F3B7buAUZNZUu772j should equal "hello world!"', () => {
     return ipfsApi.getFile(multihash).should.eventually.amorphEqual(helloWorld)
   })
-  it('get QmTp2hEo8eXRp6wg7jXv1BLCMh5a4F3B7buAUZNZUu772j should equal hello world', () => {
-    return ipfsApi.getFile(multihash).should.eventually.amorphEqual(badFile)
+  it('get QmTp2hEo8eXRp6wg7jXv1BLCMh5a4F3B7buAUZNZUu772j should equal "goodbye world"', () => {
+    return ipfsApi.getFile(multihash).should.eventually.amorphEqual(goodbyeWorld)
   })
 })

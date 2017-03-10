@@ -11,7 +11,7 @@ Amorph.loadPlugin(amorphBufferPlugin)
 Amorph.loadPlugin(amorphBignumberPlugin)
 Amorph.ready()
 
-// Goal : determine if these values are equal
+// TODO : determine if these values are equal
 
 const value1 = new Amorph('0xff', 'hex.prefixed')
 const value2 = new Amorph('ff', 'hex')
